@@ -1,0 +1,20 @@
+{
+  "name": "advent_of_code_2020",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "start": "npm run build-and-copy && node ./dist/index.js",
+    "build": "tsc",
+    "build-and-copy": "cd ./dist && rm -rf * && cd .. && npm run build && rsync -R -r ./puzzle_*/*.txt ./dist/",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "typescript": "^4.1.2"
+  },
+  "devDependencies": {
+    "@types/node": "^14.14.10"
+  }
+}

@@ -17,8 +17,7 @@ export function solve() {
     let position: Coordinates = { x: 0, y: 0 };
 
     while (position.y < map.length) {
-      const object = map[position.y][position.x];
-      if (object === "#") {
+      if (map[position.y][position.x] === "#") {
         counter++;
       }
       position = move(position, map, slope);
@@ -46,11 +45,7 @@ const move = (
   coordinates: Coordinates,
   map: Map,
   slope: Slope
-): Coordinates => {
-  const returnVal = { ...coordinates };
-
-  returnVal.x = (coordinates.x + slope.x) % map[0].length;
-  returnVal.y = coordinates.y + slope.y;
-
-  return returnVal;
-};
+): Coordinates => ({
+  x: (coordinates.x + slope.x) % map[0].length,
+  y: coordinates.y + slope.y,
+});
